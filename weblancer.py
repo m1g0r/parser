@@ -36,8 +36,8 @@ def parse(html):
         projects.append({
             'title': cols[0].a.text,
             'categories': [category.text for category in cols[0].find_all('a', class_='text-muted')],
-            'price': cols[2].text,
-            'application': cols[3].text
+            'price': cols[2].text.strip(),
+            'application': cols[3].text.strip().split()[0]
         })
 
     return projects
